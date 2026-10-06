@@ -1,0 +1,1 @@
+docker run --name personal-website -v .:/usr/share/nginx/html -p 8080:80 -d nginx:latest

@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Pixelify+Sans&family=Unbounded:wght@200..900&display=swap");
+
+/* COLORS FROM https://coolors.co */
+
+:root {
+  /* LIGHT THEME COLORS (Default) */
+  --gh-black: #0d1117;
+  --gh-gray: #57606a;
+  --gh-red: #cf222e;
+  --gh-violet: #6e40aa;
+  --gh-white: #ffffff;
+  --gh-light-gray: #f6f8fa;
+  --gh-blue: #0969da;
+  --gh-orange: #b35d00;
+  --gh-light-blue: #58a6ff;
+  --gh-green: #1a7f37;
+  --gh-light-green: #3fb950;
+  --background: #fdfcf0;
+
+  --text-color: var(--gh-black);
+
+  --elements-bg: var(--gh-light-gray);
+  --elements-text: var(--gh-gray);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* DARK THEME COLORS */
+    --gh-black: #0e1116;
+    --gh-gray: #879099;
+    --gh-red: #fe7c75;
+    --gh-violet: #d1a8fe;
+    --gh-white: #ffffff;
+    --gh-light-gray: #c9d1d8;
+    --gh-blue: #79bffa;
+    --gh-orange: #fca55f;
+    --gh-light-blue: #a4d5fc;
+    --gh-green: #2fa045;
+    --gh-light-green: #7fe789;
+    --background: #0e1116; /* Match the black for dark mode */
+
+    --text-color: var(--gh-white);
+
+    --elements-bg: black;
+    --elements-text: var(--gh-gray);
+  }
+}
+
+* {
+  font-size: 14px !important;
+}
+
+html {
+  margin: 1em;
+  padding: 0px;
+  font-family: "JetBrains Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+  background-color: var(--background);
+  color: var(--text-color);
+}
+
+main {
+  width: 600px;
+  margin: 0 auto;
+  display: block;
+}
+
+footer {
+  margin-top: 3em;
+  text-align: center;
+}
+
+:is(h1, h2, h3, h4, h5, h6) {
+  color: var(--gh-violet);
+  margin: 1.5em 0;
+}
+
+a {
+  &:visited {
+    color: var(--gh-light-green);
+  }
+  &:hover {
+    color: var(--gh-red);
+  }
+  color: var(--gh-green);
+  margin-bottom: 5em;
+}
+
+span {
+  &.li {
+    color: var(--gh-orange);
+  }
+  &.h {
+    color: var(--gh-blue);
+  }
+  &.comment {
+    padding: 2px;
+    border-radius: 0.3em;
+    background-color: var(--elements-bg); /* Changed from 'black' to variable */
+    color: var(--elements-text);
+  }
+}
+
+li {
+  margin-bottom: 5px;
+  list-style-type: none;
+}
+
+ul {
+  padding: 0px;
+}
+
+hr {
+  border: solid var(--gh-light-blue) 1px;
+}
