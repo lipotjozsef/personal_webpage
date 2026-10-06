@@ -17,7 +17,7 @@ Hungary 🇭🇺
 - CI/CD w/ Github
 - Docker
 
-interested in the site's code? [check it out here](https://github.com/yourlink)
+interested in the site's code? [check it out here](https://github.com/lipotjozsef/personal_webpage)
 
 ---
 
