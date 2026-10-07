@@ -115,7 +115,7 @@ function parseMarkDown(text, markdownTests) {
     if ("setHTML" in parent) {
       const sanitizer = new Sanitizer({
         elements: ["h1", "h2", "h3", "h4", "h5", "h6", "span", "p", "hr", "a", "ul", "li"],
-        attributes: ["class"],
+        attributes: ["class", "href"],
       });
       parent.setHTML(result, {sanitizer: sanitizer});
     } else {
