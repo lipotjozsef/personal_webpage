@@ -98,7 +98,7 @@ span {
   &.comment {
     padding: 2px;
     border-radius: 0.3em;
-    background-color: var(--elements-bg); /* Changed from 'black' to variable */
+    background-color: var(--elements-bg);
     color: var(--elements-text);
   }
 }
@@ -114,6 +114,12 @@ ul {
 
 hr {
   border: solid var(--gh-light-blue) 1px;
+}
+
+.error-page {
+  color: var(--gh-red);
+  font-weight: bold;
+  margin: 0 auto;
 }
 
 @media screen and (max-width: 600px) {
