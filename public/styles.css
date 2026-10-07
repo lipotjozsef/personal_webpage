@@ -132,7 +132,17 @@ hr {
   }
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 840px) {
+  * {
+    font-size: 2vw !important;
+  }
+
+  main {
+    width: 80vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
   * {
     font-size: 3vw !important;
   }
