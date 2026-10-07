@@ -116,8 +116,7 @@ hr {
   border: solid var(--gh-light-blue) 1px;
 }
 
-@media only screen and (device-width: 1280px),
-  only screen and (max-width: 1280px) {
+@media screen and (max-width: 600px) {
   * {
     font-size: 3vw !important;
   }
