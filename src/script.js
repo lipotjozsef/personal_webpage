@@ -1,10 +1,14 @@
 const main = document.getElementById("main");
-const pLoadingText = document.getElementById("loading-text")
+const pLoadingText = document.getElementById("loading-text");
 
-const indexMdPath = "public/index.md" 
+const indexMdPath = "public/index.md";
 
 document.addEventListener("DOMContentLoaded", async () => {
-  await fetch(indexMdPath, {method: "GET", cache: "default", priority: "auto"})
+  await fetch(indexMdPath, {
+    method: "GET",
+    cache: "default",
+    priority: "auto",
+  })
     .then((response) => {
       if (response.ok) return response.text();
       else throw new Error(`${response.status} ${response.statusText}`);
@@ -12,20 +16,20 @@ document.addEventListener("DOMContentLoaded", async () => {
     .then((data) => {
       if (typeof data === "string") {
         const markdownHTML = parseMarkDown(data, markdownRegexParseFunctions);
-        main.removeChild(pLoadingText)
-        
+        main.removeChild(pLoadingText);
+
         if (markdownHTML instanceof HTMLElement && markdownHTML !== undefined) {
           main.appendChild(markdownHTML);
         }
 
-        return
+        return;
       }
-      
+
       throw new Error("Not parseable markdown");
     })
     .catch((err) => {
       main.innerText = `${err} \nThis occured when fetching index.md`;
-      main.className = "error-page"
+      main.className = "error-page";
     });
 });
 
@@ -91,7 +95,6 @@ const markdownRegexParseFunctions = [
   },
 ];
 
-
 function parseMarkDown(text, markdownTests) {
   const parent = document.createElement("section");
 
@@ -105,12 +108,16 @@ function parseMarkDown(text, markdownTests) {
         const errorPar = document.createElement("p");
         errorPar.innerText = "FAILED PARSE MARKDOWN";
 
-        return errorPar
+        return errorPar;
       }
     }, text);
 
     if ("setHTML" in parent) {
-      parent.setHTML(result);
+      const sanitizer = new Sanitizer({
+        elements: ["h1", "h2", "h3", "h4", "h5", "h6", "span", "p", "hr", "a", "ul", "li"],
+        attributes: ["class"],
+      });
+      parent.setHTML(result, {sanitizer: sanitizer});
     } else {
       parent.innerHTML = result;
     }
