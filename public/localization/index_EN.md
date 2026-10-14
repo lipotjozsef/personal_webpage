@@ -21,4 +21,4 @@ interested in the site's code? [check it out here](https://github.com/lipotjozse
 
 ---
 
-[this file](/index.md) [Font JetBrains Mono](https://www.jetbrains.com/lp/mono/)
+[this file](/localization/index_EN.md) [Font JetBrains Mono](https://www.jetbrains.com/lp/mono/)

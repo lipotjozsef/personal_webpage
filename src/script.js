@@ -1,10 +1,38 @@
 const main = document.getElementById("main");
 const pLoadingText = document.getElementById("loading-text");
 
-const indexMdPath = "public/index.md";
+const indexMdPath = "public/localization/index_{0}.md";
+const defaultLanguage = "EN";
+
+async function routeLocalization() {
+  let language = window.navigator.userLanguage || window.navigator.language;
+  language = language.split('-')[0]
+  if (language === undefined) language = defaultLanguage;
+
+  let route = format(indexMdPath, language)
+
+  await fetch(route)
+    .catch((err) => {
+      if (err.status === 404) {
+        language = defaultLanguage
+        route = format(indexMdPath, language);
+      }
+      else
+        showErrorPage(err, "This occured when fetching index.md");
+    })
+
+  return {
+    indexRoute: route,
+    languageCode: language
+  }
+}
 
 document.addEventListener("DOMContentLoaded", async () => {
-  await fetch(indexMdPath, {
+  const { indexRoute, languageCode } = await routeLocalization();
+
+  parent.location.hash = languageCode;
+
+  await fetch(indexRoute, {
     method: "GET",
     cache: "default",
     priority: "auto",
@@ -28,8 +56,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       throw new Error("Not parseable markdown");
     })
     .catch((err) => {
-      main.innerText = `${err} \nThis occured when fetching index.md`;
-      main.className = "error-page";
+      showErrorPage(err, "This occured when fetching index.md");
     });
 });
 
@@ -117,11 +144,22 @@ function parseMarkDown(text, markdownTests) {
         elements: ["h1", "h2", "h3", "h4", "h5", "h6", "span", "p", "hr", "a", "ul", "li"],
         attributes: ["class", "href"],
       });
-      parent.setHTML(result, {sanitizer: sanitizer});
+      parent.setHTML(result, { sanitizer: sanitizer });
     } else {
       parent.innerHTML = result;
     }
   }
 
   return parent;
+}
+
+function showErrorPage(Error, ErrorMessage) {
+  main.innerText = `${Error} \n${ErrorMessage}`;
+  main.className = "error-page";
+}
+
+function format(str, ...values) {
+  return str.replace(/{(\d+)}/g, function (match, index) {
+    return typeof values[index] !== 'undefined' ? values[index] : match;
+  });
 }
