@@ -7,7 +7,7 @@ Hungary 🇭🇺
 ## Education
 - currently attending `Jedlik Ányos Technikum`
 - studied languages `C#, javascript, python`
-- striving towards being a CS Major *_*
+- striving towards being a CS Major
 
 ### Full-stack developer
 - frontend: `angular, react`

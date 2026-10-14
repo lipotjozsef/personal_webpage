@@ -1,13 +1,13 @@
-# Üdv a weboldalamon!
+# Üdv a WEBOLDALAMON!
 # Lipót József Zoltán
 Magyar 🇭🇺
 
-[kövess be @ githubon =)](https://gh.lipotjoci.hu)
+[kövess be githubon =)](https://gh.lipotjoci.hu)
 
 ## Tanulmányok
-- jelenleg `Jedlik Ányos Technikum` tanulója
+- jelenleg a `Jedlik Ányos Technikum` tanulója
 - tanult programnyelvek `C#, javascript, python`
-- Szoftvermérnőknek törekszek *_*
+- Szoftvermérnöknek törekszek
 
 ### Full-stack fejlesztő
 - frontend: `angular, react`
@@ -17,8 +17,8 @@ Magyar 🇭🇺
 - CI/CD Githubbal
 - Docker
 
-érdekelne a weboldal forráskódja? [itt megnézheted](https://github.com/lipotjozsef/personal_webpage)
+érdekel a weboldal forráskódja? [itt megnézheted](https://github.com/lipotjozsef/personal_webpage)
 
 ---
 
-[az oldal fáljként](/localization/index_HU.md) [Font JetBrains Mono](https://www.jetbrains.com/lp/mono/)
+[az oldal fáljként](/public/index_HU.md) [Betűtípus JetBrains Mono](https://www.jetbrains.com/lp/mono/)
