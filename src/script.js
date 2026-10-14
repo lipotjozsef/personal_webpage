@@ -6,31 +6,38 @@ const defaultLanguage = "EN";
 
 async function routeLocalization() {
   let language = window.navigator.userLanguage || window.navigator.language;
-  language = language.split('-')[0]
+  language = language.split('-')[0].toUpperCase();
   if (language === undefined) language = defaultLanguage;
 
   let route = format(indexMdPath, language)
-
-  await fetch(route)
-    .catch((err) => {
-      if (err.status === 404) {
+  let error;
+  await fetch(route, {method: "HEAD"})
+    .then((resp) => {
+      if (!resp.ok) {
         language = defaultLanguage
         route = format(indexMdPath, language);
       }
-      else
-        showErrorPage(err, "This occured when fetching index.md");
+    })
+    .catch(err => {
+      route = undefined;
+      error = err;
     })
 
   return {
     indexRoute: route,
-    languageCode: language
+    languageCode: language,
+    error: error
   }
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
-  const { indexRoute, languageCode } = await routeLocalization();
-
+  const { indexRoute, languageCode, error } = await routeLocalization();
   parent.location.hash = languageCode;
+
+  if (indexRoute === undefined) {
+    showErrorPage(error, "This occured when fetching index.md");
+    return;
+  }
 
   await fetch(indexRoute, {
     method: "GET",
