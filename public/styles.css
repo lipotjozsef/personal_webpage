@@ -52,7 +52,7 @@
 
 html {
   margin: 1em;
-  padding: 0px;
+  padding: 1rem;
   font-family: "JetBrains Mono", monospace;
   font-optical-sizing: auto;
   font-weight: normal;
@@ -122,7 +122,7 @@ hr {
   margin: 0 auto;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1400px) {
   * {
     font-size: 1.3vw !important;
   }
@@ -132,13 +132,18 @@ hr {
   }
 }
 
-@media screen and (max-width: 840px) {
+@media screen and (max-width: 1000px) {
   * {
-    font-size: 2vw !important;
+    font-size: 1.8vw !important;
+  }
+
+  html {
+    scale: 80%;
+    transform: translate(-5%, -10%);
   }
 
   main {
-    width: 80vw;
+    width: 65vw;
   }
 }
 
@@ -153,6 +158,6 @@ hr {
   }
 
   main {
-    width: 80vw;
+    width: 90vw;
   }
 }
