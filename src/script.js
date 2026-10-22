@@ -34,6 +34,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   const { indexRoute, languageCode, error } = await routeLocalization();
   parent.location.hash = languageCode;
 
+  document.documentElement.setAttribute("lang", languageCode.toLowerCase());
+  
   if (indexRoute === undefined) {
     showErrorPage(error, "This occured when fetching index.md");
     return;
@@ -65,7 +67,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     .catch((err) => {
       showErrorPage(err, "This occured when fetching index.md");
     });
-});
+}, {once: true});
 
 const markdownRegexParseFunctions = [
   /* p */
