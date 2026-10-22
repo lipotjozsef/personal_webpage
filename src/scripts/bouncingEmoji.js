@@ -27,6 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
         fontSize = 10;
     }
 
+    bouncingCanvas.tagName = "Bouncing Emoji Canvas";
+
     bouncingCanvas.style = `
         pointer-events:none;
         position: fixed;

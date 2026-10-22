@@ -21,4 +21,4 @@ Magyar 🇭🇺
 
 ---
 
-[az oldal fáljként](/public/index_HU.md) [Betűtípus JetBrains Mono](https://www.jetbrains.com/lp/mono/)
+[az oldal fáljként](/public/localization/index_HU.md) [Betűtípus JetBrains Mono](https://www.jetbrains.com/lp/mono/)
