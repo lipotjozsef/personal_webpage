@@ -7,7 +7,7 @@ Magyar 🇭🇺
 ## Tanulmányok
 - jelenleg a `Jedlik Ányos Technikum` tanulója
 - tanult programnyelvek `C#, javascript, python`
-- Szoftvermérnöknek törekszek
+- mérnökinformatikusnak törekszek
 
 ### Full-stack fejlesztő
 - frontend: `angular, react`
